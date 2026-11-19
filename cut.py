@@ -1,4 +1,5 @@
 import subprocess
+import sys
 def cut(input_path, start, end, output_path):
     command = [
         "ffmpeg",
@@ -23,6 +24,9 @@ def cut(input_path, start, end, output_path):
     ]
     subprocess.run(command,check=True)
 
+if len(sys.argv) != 5:
+    print("Usage: python cut.py <input_path> <start_time> <end_time> <output_path>")
+    sys.exit(1)
 
 
-cut("episode.mp4", "90", "120", "output.mp4")
+cut(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
