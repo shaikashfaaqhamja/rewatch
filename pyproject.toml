@@ -1,0 +1,9 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name="rewatch"
+version = "0.0.1"
+description = "Turn long videos into sort clips, locally."
+requires-python = ">=3.11"
