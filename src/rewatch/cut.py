@@ -3,6 +3,9 @@ import sys
 def cut(input_path, start, end, output_path):
     command = [
         "ffmpeg",
+        "-hide_banner",
+        "-loglevel",
+        "error",
         "-y",
         "-ss",
         str(start),

@@ -9,3 +9,5 @@ def main():
 @app.command()
 def cut(input_path: str, start: float, end: float, output_path: str):
     cut_video(input_path, start, end, output_path)
+    typer.echo(f"Saved clip to {output_path}")
+
