@@ -3,11 +3,17 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name="rewatch"
-version = "0.0.1"
-description = "Turn long videos into sort clips, locally."
+name="rewatchx"
+version = "0.1.0"
+description = "Turn long videos into short captioned clips, locally."
+readme = "README.md"
+license = "MIT"
 requires-python = ">=3.11"
+authors = [{ name = "Ashfaaq Hamja Shaik" }]
 dependencies = ["typer", "faster-whisper", "av<19"]
+
+[project.urls]
+Homepage = "https://github.com/shaikashfaaqhamja/rewatch"
 
 [project.scripts]
 rewatch = "rewatch.cli:app"
