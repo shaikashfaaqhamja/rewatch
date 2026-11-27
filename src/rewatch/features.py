@@ -27,6 +27,14 @@ def scale(values):
         return np.zeros_like(values)
     return (values - min_val) / (max_val - min_val)
 
+def window_scores(scores, size):
+    total = sum(scores[:size])
+    result = [total]
+    for i in range(size, len(scores)):
+        total += scores[i]
+        total -= scores[i - size]
+        result.append(total)
+    return result
 
 
 if __name__ == "__main__":
@@ -34,4 +42,6 @@ if __name__ == "__main__":
     words = transcribe("clip.mp4")
     speed = words_per_second(words, len(loud))
     score = scale(loud) + scale(speed)
-    print(score.round(2))
+    windows = window_scores(score, 5)
+    print(len(windows))
+    print(np.round(windows, 2))
